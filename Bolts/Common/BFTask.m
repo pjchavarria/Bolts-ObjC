@@ -469,6 +469,14 @@ NSString *const BFTaskMultipleExceptionsUserInfoKey = @"exceptions";
     return tcs.task;
 }
 
+- (BFTask *)continuesWithExecutor:(BFExecutor *)executor withBlock:(BFContinuationBlock)block {
+    return [self continueWithExecutor:executor block:block cancellationToken:nil];
+}
+
+- (BFTask *)continuesWithBlock:(BFContinuationBlock)block {
+    return [self continueWithExecutor:[BFExecutor defaultExecutor] block:block cancellationToken:nil];
+}
+
 - (BFTask *)continueWithBlock:(BFContinuationBlock)block {
     return [self continueWithExecutor:[BFExecutor defaultExecutor] block:block cancellationToken:nil];
 }
