@@ -280,6 +280,10 @@ __attribute__((deprecated("`BFTask` exception handling is deprecated and will be
                     successBlock:(BFContinuationBlock)block
                cancellationToken:(nullable BFCancellationToken *)cancellationToken;
 
+- (BFTask *)continuesWithExecutor:(BFExecutor *)executor withBlock:(BFContinuationBlock)block;
+
+- (BFTask *)continuesWithBlock:(BFContinuationBlock)block;
+
 /*!
  Waits until this operation is completed.
  This method is inefficient and consumes a thread resource while
